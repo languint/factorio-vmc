@@ -1,13 +1,6 @@
-use tauri::Runtime;
+pub mod commands;
 
-#[tauri::command]
-fn toggle_fullscreen<R: Runtime>(window: tauri::Window<R>) -> Result<(), String> {
-    let is_fullscreen = window.is_fullscreen().map_err(|e| e.to_string())?;
-    window
-        .set_fullscreen(!is_fullscreen)
-        .map_err(|e| e.to_string())?;
-    Ok(())
-}
+use commands::fullscreen::toggle_fullscreen;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
