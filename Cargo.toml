@@ -1,0 +1,11 @@
+[workspace]
+resolver = "3"
+members = ["crates/factorio_vmc", "src-tauri"]
+
+[workspace.dependencies]
+factorio_vmc = { path = "crates/factorio_vmc" }
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
