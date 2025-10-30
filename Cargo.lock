@@ -898,6 +898,10 @@ name = "factorio_vmc"
 version = "0.1.0"
 
 [[package]]
+name = "factorio_vmc_nodes"
+version = "0.1.0"
+
+[[package]]
 name = "fastrand"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"

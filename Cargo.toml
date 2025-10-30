@@ -1,9 +1,10 @@
 [workspace]
 resolver = "3"
-members = ["crates/factorio_vmc", "src-tauri"]
+members = ["crates/factorio_vmc", "crates/factorio_vmc_nodes", "src-tauri"]
 
 [workspace.dependencies]
 factorio_vmc = { path = "crates/factorio_vmc" }
+factorio_vmc_nodes = { path = "crates/factorio_vmc_nodes" }
 
 [workspace.lints.clippy]
 all = { level = "warn", priority = -1 }
