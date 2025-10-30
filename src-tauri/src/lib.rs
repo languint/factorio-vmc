@@ -1,18 +1,19 @@
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+use tauri::Runtime;
+
 #[tauri::command]
-fn greet(name: &str, a: u64, b: u64) -> String {
-    format!(
-        "Hello, {}! You've been greeted from Rust! {}",
-        name,
-        factorio_vmc::add(a, b)
-    )
+fn toggle_fullscreen<R: Runtime>(window: tauri::Window<R>) -> Result<(), String> {
+    let is_fullscreen = window.is_fullscreen().map_err(|e| e.to_string())?;
+    window
+        .set_fullscreen(!is_fullscreen)
+        .map_err(|e| e.to_string())?;
+    Ok(())
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![toggle_fullscreen])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
