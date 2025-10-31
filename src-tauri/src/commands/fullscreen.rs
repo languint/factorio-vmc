@@ -1,6 +1,7 @@
 use tauri::{Runtime, WebviewWindow};
 
 #[tauri::command]
+/// Attempt to toggle fullscreen for the main window
 pub fn toggle_fullscreen<R: Runtime>(window: WebviewWindow<R>) -> Result<(), String> {
     let is_fullscreen = window.is_fullscreen().map_err(|e| e.to_string())?;
     window
