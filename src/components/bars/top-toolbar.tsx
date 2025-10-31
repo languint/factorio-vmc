@@ -4,17 +4,13 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarSeparator,
   MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
   MenubarTrigger,
 } from "../ui/menubar";
 
 export function TopToolbar() {
   return (
-    <Menubar className="rounded-none">
+    <Menubar className="rounded-none border-l-0 border-r-0 border-t-0">
       <MenubarMenu>
         <MenubarTrigger>Project</MenubarTrigger>
         <MenubarContent>
