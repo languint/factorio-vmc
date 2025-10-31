@@ -1,3 +1,3 @@
-# factorio-vmc
+# factorio-workshop
 
-> A visual scripting tool for Factorio
+> A modding and visual scripting tool for Factorio

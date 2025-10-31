@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    factorio_vmc_lib::run()
+    factorio_workshop_lib::run()
 }

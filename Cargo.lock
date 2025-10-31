@@ -882,10 +882,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "factorio-vmc-app"
+name = "factorio-workspace-app"
 version = "0.1.0"
 dependencies = [
- "factorio_vmc",
+ "factorio_workshop",
  "serde",
  "serde_json",
  "tauri",
@@ -894,11 +894,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "factorio_vmc"
+name = "factorio_workshop"
 version = "0.1.0"
 
 [[package]]
-name = "factorio_vmc_nodes"
+name = "factorio_workshop_nodes"
 version = "0.1.0"
 
 [[package]]
