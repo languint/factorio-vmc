@@ -1,4 +1,4 @@
-import { Project } from "@/state";
+import { Button } from "@/components/ui/button";
 import {
   Empty,
   EmptyContent,
@@ -6,38 +6,37 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "./ui/empty";
+} from "@/components/ui/empty";
+import { Project } from "@/state";
 import { FolderCode } from "lucide-react";
-import { Button } from "./ui/button";
 
 interface Props {
-  current_project: Project | null;
+  projects: Project[];
 }
 
-export function ProjectView({ current_project }: Props) {
+export function ProjectsPage({ projects }: Props) {
   return (
-    <div className="flex grow justify-center items-center">
-      {current_project ? (
-        <></>
-      ) : (
+    <div className="w-full h-full justify-center items-center">
+      {projects.length === 0 ? (
         <Empty>
           <EmptyHeader>
             <EmptyMedia variant="icon">
-              <FolderCode />
+              <FolderCode strokeWidth={1} />
             </EmptyMedia>
             <EmptyTitle>No Projects Yet</EmptyTitle>
             <EmptyDescription>
-              You haven&apos;t created any projects yet. Get started by creating
-              your first project.
+              You haven't created any projects yet. Get started by creating your
+              first project.
             </EmptyDescription>
           </EmptyHeader>
           <EmptyContent>
             <div className="flex gap-2">
               <Button>Create Project</Button>
-              {/* <Button variant="outline">Import Project</Button> */}
             </div>
           </EmptyContent>
         </Empty>
+      ) : (
+        <></>
       )}
     </div>
   );

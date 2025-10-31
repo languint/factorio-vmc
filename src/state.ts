@@ -38,3 +38,26 @@ export function useProject() {
 
   return { project, setProject: updateProject };
 }
+
+export function useTool() {
+  const [tool, setTool] = useState<number>(0);
+
+  useEffect(() => {
+    invoke<number>("get_tool").then(setTool);
+
+    const unlisten = listen<number>("tool-changed", (event) => {
+      setTool(event.payload);
+    });
+
+    return () => {
+      unlisten.then((f) => f());
+    };
+  }, []);
+
+  const updateTool = async (tool: number) => {
+    setTool(tool);
+    await invoke("set_tool", { tool });
+  };
+
+  return { tool, setTool: updateTool };
+}
