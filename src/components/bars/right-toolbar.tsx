@@ -38,21 +38,32 @@ export const TOOLS = [
 
 export function RightToolbar() {
   const { tool: toolIndex, setTool } = useTool();
-  console.log(toolIndex);
+
+  const onToolClick = (index: number) => {
+    if (index === toolIndex) {
+      setTool(255);
+      return;
+    }
+
+    setTool(index);
+  };
+
   return (
     <TooltipProvider>
-      <ResizablePanel collapsedSize={0} maxSize={20} className="border-l">
-        {TOOLS[toolIndex].toolPanel}
-      </ResizablePanel>
+      {toolIndex != 255 && (
+        <ResizablePanel collapsedSize={0} maxSize={20} className="border-l">
+          {TOOLS[toolIndex].toolPanel}
+        </ResizablePanel>
+      )}
       <div className="h-full w-16 flex flex-col border-l">
         {TOOLS.map((tool, index) => (
           <Tooltip>
             <TooltipTrigger>
               <button
-                className={`w-full aspect-square flex items-center justify-center ${
+                className={`w-full aspect-square flex items-center justify-center box-border ${
                   toolIndex === index && `border-r border-orange-600`
                 }`}
-                onClick={() => setTool(index)}
+                onClick={() => onToolClick(index)}
               >
                 {tool.icon}
               </button>

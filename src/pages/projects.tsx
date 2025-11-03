@@ -21,7 +21,7 @@ export function ProjectsPage({ projects }: Props) {
         <Empty>
           <EmptyHeader>
             <EmptyMedia variant="icon">
-              <FolderCode strokeWidth={1} />
+              <FolderCode />
             </EmptyMedia>
             <EmptyTitle>No Projects Yet</EmptyTitle>
             <EmptyDescription>

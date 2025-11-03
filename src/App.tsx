@@ -1,7 +1,7 @@
 import { BottomToolbar } from "./components/bars/bottom-toolbar";
 import { TopToolbar } from "./components/bars/top-toolbar";
 
-import { useProject } from "./state";
+import { useProject, useTool } from "./state";
 import "./app.css";
 import {
   ResizableHandle,
@@ -14,6 +14,7 @@ import { ProjectsPage } from "./pages/projects";
 
 export function App() {
   const { project, setProject } = useProject();
+  const { tool: toolIndex} = useTool();
 
   return (
     <div className="App bg-background w-full h-full flex flex-col">
@@ -24,7 +25,7 @@ export function App() {
             <ProjectsPage projects={[]} />
           </Page>
         </ResizablePanel>
-        <ResizableHandle withHandle />
+        {toolIndex != 255 && <ResizableHandle withHandle />}
         <RightToolbar />
       </ResizablePanelGroup>
       <BottomToolbar current_project={project} />
