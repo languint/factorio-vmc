@@ -49,7 +49,7 @@ export function RightToolbar() {
           <Tooltip>
             <TooltipTrigger>
               <button
-                className={`w-full aspect-square flex items-center ${
+                className={`w-full aspect-square flex items-center justify-center ${
                   toolIndex === index && `border-r border-orange-600`
                 }`}
                 onClick={() => setTool(index)}

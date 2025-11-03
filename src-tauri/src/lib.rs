@@ -6,7 +6,10 @@ use std::sync::Mutex;
 use commands::fullscreen;
 use tauri::Manager;
 
-use crate::{commands::state::{project, tool}, state::AppState};
+use crate::{
+    commands::state::{project, tool},
+    state::AppState,
+};
 
 pub fn run() {
     tauri::Builder::default()

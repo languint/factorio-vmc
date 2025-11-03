@@ -11,7 +11,6 @@ pub async fn get_project(state: State<'_, Mutex<AppState>>) -> Result<Option<Pro
     Ok(state.current_project.clone())
 }
 
-
 #[tauri::command]
 /// Set the currently loaded [`Project`]
 /// Emits `project-changed` signal on change.

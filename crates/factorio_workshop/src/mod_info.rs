@@ -8,5 +8,5 @@ pub struct ModInfo {
     pub title: String,
     pub author: String,
     pub factorio_version: String,
-    pub dependencies: Vec<String>
+    pub dependencies: Vec<String>,
 }
