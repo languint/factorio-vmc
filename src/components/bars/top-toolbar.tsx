@@ -10,7 +10,6 @@ import {
   MenubarShortcut,
   MenubarTrigger,
 } from "../ui/menubar";
-import { Separator } from "../ui/separator";
 
 export function TopToolbar() {
   const { theme, setTheme } = useTheme();
@@ -34,14 +33,30 @@ export function TopToolbar() {
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
-      <Separator orientation="vertical" className="mx-4" />
+      <MenubarMenu>
+        <MenubarTrigger>Factorio</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>
+            Launch <p className="text-muted-foreground">(Steam)</p>{" "}
+            <MenubarShortcut>
+              <Kbd>Ctrl + L</Kbd>
+            </MenubarShortcut>
+          </MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>Themes</MenubarTrigger>
         <MenubarContent>
           <MenubarRadioGroup value={theme}>
-            <MenubarRadioItem value="dark" onClick={() => setTheme("dark")}>Dark</MenubarRadioItem>
-            <MenubarRadioItem value="light" onClick={() => setTheme("light")}>Light</MenubarRadioItem>
-            <MenubarRadioItem value="system" onClick={() => setTheme("system")}>System</MenubarRadioItem>
+            <MenubarRadioItem value="dark" onClick={() => setTheme("dark")}>
+              Dark
+            </MenubarRadioItem>
+            <MenubarRadioItem value="light" onClick={() => setTheme("light")}>
+              Light
+            </MenubarRadioItem>
+            <MenubarRadioItem value="system" onClick={() => setTheme("system")}>
+              System
+            </MenubarRadioItem>
           </MenubarRadioGroup>
         </MenubarContent>
       </MenubarMenu>
